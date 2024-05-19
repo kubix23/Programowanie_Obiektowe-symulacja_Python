@@ -44,8 +44,8 @@ class WorldPanel:
 
     def generatePath(self, number):
         polygon = []
-        centerX = (self.__width/self.__sizeX) / 2
-        centerY = (self.__height/self.__sizeY) / 2
+        centerX = (self.__width/self.__sizeX) // 2
+        centerY = (self.__height/self.__sizeY) // 2
         angleOfset = 180 / number if number % 2 == 0 else 90
         for i in range(0, number):
             angleDegrees = ((360 / number) * i) + angleOfset
@@ -56,8 +56,8 @@ class WorldPanel:
         return polygon
 
     def drawGrid(self, world):
-        rowHeight = self.__height / self.__sizeY
-        colWidth = self.__width / self.__sizeX
+        rowHeight = (self.__height / self.__sizeY )
+        colWidth = (self.__width / self.__sizeX)
         path = self.generatePath(self.__number)
         yPos = 0
         for row in range(0,self.__sizeY):

@@ -14,9 +14,9 @@ class Antelope(Animals):
 
     def collision(self, attacker):
         if not self.proliferation(attacker):
-            print(attacker.getName() + '(' + str(attacker.getPosX()) + ',' + str(attacker.getPosY()) + ')' + " zaatakowal " + self._name + '(' + str(self._posX) + ',' + str(self._posY) + ')', end='')
+            print(attacker.getName() + '(' + str(attacker.getPosX()) + ',' + str(attacker.getPosY()) + ')' + " zaatakowal " + self._name + '(' + str(self._posX) + ',' + str(self._posY) + ')')
             if random.randint(0,2) == 1:
-                newXY = [0,0]
+                newXY = [0, 0]
                 i = 0
                 while True:
                     self.getNewXY(newXY, 1)

@@ -36,11 +36,11 @@ class Human(Animals):
             self.__dy = 0
         if self.__skillCooldown != 0:
             self.__skillCooldown -= 1
-            print("Zostalo " + str(self.__skillCooldown) + " lat do uzycia Calopalenia");
+            print("Zostalo " + str(self.__skillCooldown) + " lat do uzycia Calopalenia")
 
     def skill(self):
         if self.__skillCooldown == 0:
-            print("Czlowiek uzyl umiejetnosci Calopalenie niszczac:");
+            print("Czlowiek uzyl umiejetnosci Calopalenie niszczac:")
             self.__skillCooldown = 5
             for i in range(-1, 2):
                 for j in range(-1, 2):
@@ -65,27 +65,39 @@ class Human(Animals):
         if event.type == pygame.KEYDOWN:
             if self._world.isHex():
                 if pygame.key.get_pressed()[pygame.K_q]:
-                    self.moveSpeed(-1, -1);
-                if pygame.key.get_pressed()[pygame.K_w]:
-                    self.moveSpeed(1, -1);
-                if pygame.key.get_pressed()[pygame.K_a]:
-                    self.moveSpeed(-1, 0);
-                if pygame.key.get_pressed()[pygame.K_s]:
-                    self.moveSpeed(1, 0);
-                if pygame.key.get_pressed()[pygame.K_z]:
-                    self.moveSpeed(-1, 1);
-                if pygame.key.get_pressed()[pygame.K_x]:
-                    self.moveSpeed(1, 1);
-                if pygame.key.get_pressed()[pygame.K_p]:
+                    self.moveSpeed(-1, -1)
+                    self._world.takeTurn()
+                elif pygame.key.get_pressed()[pygame.K_w]:
+                    self.moveSpeed(1, -1)
+                    self._world.takeTurn()
+                elif pygame.key.get_pressed()[pygame.K_a]:
+                    self.moveSpeed(-1, 0)
+                    self._world.takeTurn()
+                elif pygame.key.get_pressed()[pygame.K_s]:
+                    self.moveSpeed(1, 0)
+                    self._world.takeTurn()
+                elif pygame.key.get_pressed()[pygame.K_z]:
+                    self.moveSpeed(-1, 1)
+                    self._world.takeTurn()
+                elif pygame.key.get_pressed()[pygame.K_x]:
+                    self.moveSpeed(1, 1)
+                    self._world.takeTurn()
+                elif pygame.key.get_pressed()[pygame.K_p]:
                     self.skill()
+                    self._world.takeTurn()
             else:
-                if pygame.key.get_pressed()[pygame.K_UP]:
-                    self.moveSpeed(0, -1);
-                if pygame.key.get_pressed()[pygame.K_LEFT]:
-                    self.moveSpeed(-1, 0);
-                if pygame.key.get_pressed()[pygame.K_RIGHT]:
-                    self.moveSpeed(1, 0);
-                if pygame.key.get_pressed()[pygame.K_DOWN]:
-                    self.moveSpeed(0, 1);
-                if pygame.key.get_pressed()[pygame.K_p]:
+                if pygame.key.get_pressed()[pygame.K_UP] or pygame.key.get_pressed()[pygame.K_w]:
+                    self.moveSpeed(0, -1)
+                    self._world.takeTurn()
+                elif pygame.key.get_pressed()[pygame.K_LEFT] or pygame.key.get_pressed()[pygame.K_a]:
+                    self.moveSpeed(-1, 0)
+                    self._world.takeTurn()
+                elif pygame.key.get_pressed()[pygame.K_RIGHT] or pygame.key.get_pressed()[pygame.K_d]:
+                    self.moveSpeed(1, 0)
+                    self._world.takeTurn()
+                elif pygame.key.get_pressed()[pygame.K_DOWN] or pygame.key.get_pressed()[pygame.K_s]:
+                    self.moveSpeed(0, 1)
+                    self._world.takeTurn()
+                elif pygame.key.get_pressed()[pygame.K_p]:
                     self.skill()
+                    self._world.takeTurn()

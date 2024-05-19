@@ -54,3 +54,4 @@ class SelectMenu(pygame.sprite.Sprite):
                             org = self.__table[self.__button.index(b)]
                             self.__world.insertOrganism(getattr(org, org.__name__.split(".")[-1])(self.__x, self.__y, self.__world))
                             self.__world.updateWorld()
+                            self.kill()
