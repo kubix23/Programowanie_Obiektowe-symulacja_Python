@@ -2,7 +2,7 @@
 
 ## Run
 
-Use PO1.sin with Visual Studio. Program created on Python 3.12.
+Open in PyCharm. Program created on Python 3.12.
 
 ## Description
 
